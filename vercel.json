@@ -2,6 +2,9 @@
   "functions": {
     "api/[...route].js": {
       "maxDuration": 180
+    },
+    "api/caricature/generate.js": {
+      "maxDuration": 180
     }
   }
 }

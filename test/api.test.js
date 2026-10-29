@@ -1,6 +1,7 @@
 const assert = require("node:assert/strict");
 const { after, before, test } = require("node:test");
 const app = require("../app");
+const deployedCaricatureRoute = require("../api/caricature/generate");
 
 let server;
 let baseUrl;
@@ -45,6 +46,10 @@ function pngForm({ style = "caricature", additionalRequest = "베이지 계열" 
   form.append("additionalRequest", additionalRequest);
   return form;
 }
+
+test("Vercel caricature route exports the Express app", () => {
+  assert.equal(deployedCaricatureRoute, app);
+});
 
 test("health endpoint reports OpenAI mode", async () => {
   const response = await fetch(`${baseUrl}/api/health`);
