@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7fb">
+    <meta name="description" content="사진을 캐리커처, 애니메이션, 영화 포스터 스타일로 변환해 보세요.">
+    <title>Caricature Studio — AI 캐리커처 생성기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Caricature Studio 홈">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>caricature<span class="brand-dot">.</span></span>
+      </a>
+      <span class="topbar-note"><span class="status-dot"></span> AI 이미지 스튜디오</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR FACE, REIMAGINED</p>
+          <h1>사진 한 장을,<br><span>새로운 아트로.</span></h1>
+          <p class="hero-description">사진 한 장으로 나만의 캐리커처를 만들어 보세요.<br class="desktop-break"> 애니메이션과 영화 포스터 스타일도 선택할 수 있어요.</p>
+          <a class="hero-link" href="#studio">이미지 변환 시작하기 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-label="캐리커처 스타일 프로필 예시">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="인물 프로필 스타일 변환 예시">
+          <div class="art-caption"><span>CARICATURE STUDIO</span><strong>Your face, reimagined.</strong></div>
+          <span class="art-sticker">ART<br>01</span>
+        </div>
+        <div class="hero-orb hero-orb-one"></div>
+        <div class="hero-orb hero-orb-two"></div>
+      </section>
+
+      <section class="studio section-wrap" id="studio">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LET'S CREATE</p>
+            <h2>나만의 이미지 변환 만들기</h2>
+          </div>
+          <span class="step-note">01 <i></i> 02 <i></i> 03</span>
+        </div>
+
+        <div class="studio-grid">
+          <div class="form-column">
+            <section class="panel upload-panel" aria-labelledby="uploadTitle">
+              <div class="panel-heading">
+                <span class="step-number">01</span>
+                <div><h3 id="uploadTitle">사진을 업로드해 주세요</h3><p>얼굴이 선명하게 보이는 인물 사진을 선택하세요.</p></div>
+              </div>
+              <label class="upload-area" id="dropZone" for="imageInput">
+                <input id="imageInput" type="file" accept="image/jpeg,image/png,.jpg,.jpeg,.png">
+                <span class="upload-icon" aria-hidden="true">↑</span>
+                <strong id="uploadTitleText">사진을 여기에 끌어놓거나 클릭해 선택</strong>
+                <span class="upload-hint">JPG 또는 PNG · 최대 10MB</span>
+                <span class="file-info hidden" id="fileInfo"></span>
+              </label>
+              <div class="privacy-note"><span aria-hidden="true">◈</span> 사진은 이미지 변환 요청에만 사용됩니다.</div>
+            </section>
+
+            <section class="panel style-panel" aria-labelledby="styleTitle">
+              <div class="panel-heading">
+                <span class="step-number">02</span>
+                <div><h3 id="styleTitle">어떤 스타일로 변환할까요?</h3><p>원하는 이미지 표현 방식을 선택해 주세요.</p></div>
+              </div>
+              <div class="style-options" role="group" aria-labelledby="styleTitle">
+                <button class="style-option selected" type="button" data-style="caricature" aria-pressed="true">
+                  <span class="style-emoji" aria-hidden="true">✎</span><span class="style-name">캐리커처</span><span class="style-subtitle">개성 있는 일러스트</span>
+                </button>
+                <button class="style-option" type="button" data-style="animation" aria-pressed="false">
+                  <span class="style-emoji" aria-hidden="true">✦</span><span class="style-name">애니메이션</span><span class="style-subtitle">생동감 있는 캐릭터</span>
+                </button>
+                <button class="style-option" type="button" data-style="poster" aria-pressed="false">
+                  <span class="style-emoji" aria-hidden="true">▣</span><span class="style-name">영화 포스터</span><span class="style-subtitle">시네마틱한 연출</span>
+                </button>
+              </div>
+            </section>
+
+            <section class="panel request-panel" aria-labelledby="requestTitle">
+              <div class="panel-heading">
+                <span class="step-number">03</span>
+                <div><h3 id="requestTitle">추가로 원하는 표현이 있나요?</h3><p>이미지에 더하고 싶은 분위기나 디테일을 적어 주세요.</p></div>
+              </div>
+              <label class="visually-hidden" for="additionalRequest">추가 요청사항</label>
+              <textarea id="additionalRequest" maxlength="500" placeholder="예: 따뜻한 파스텔 톤으로, 얼굴 특징은 잘 알아볼 수 있게 해 주세요."></textarea>
+              <div class="textarea-footer"><span>선택 입력</span><span><b id="charCount">0</b> / 500</span></div>
+            </section>
+
+            <button class="generate-button" id="generateButton" type="button">
+              <span aria-hidden="true">✦</span><span>이미지 변환</span><span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          </div>
+
+          <aside class="result-column" aria-labelledby="resultTitle">
+            <div class="result-heading">
+              <div><p class="eyebrow">YOUR CARICATURE</p><h2 id="resultTitle">변환 이미지 미리보기</h2></div>
+              <span class="demo-tag" id="resultTag">예시</span>
+            </div>
+            <div class="comparison-card" id="comparisonCard">
+              <div class="comparison-image">
+                <img id="afterImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="예시 변환 이미지">
+                <div class="before-layer" id="beforeLayer">
+                  <img id="beforeImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="원본 사진 비교 이미지">
+                </div>
+                <span class="image-label label-before" id="beforeLabel">원본</span>
+                <span class="image-label label-after">변환 이미지</span>
+                <input class="compare-range" id="compareRange" type="range" min="0" max="100" value="50" aria-label="원본과 변환 이미지 비교">
+                <span class="compare-divider" id="compareDivider" aria-hidden="true"><i></i></span>
+                <div class="empty-result hidden" id="emptyResult">
+                  <span aria-hidden="true">✦</span><strong>나만의 변환 이미지가 여기에</strong><p>사진을 업로드하고 이미지 변환을 시작해 보세요.</p>
+                </div>
+              </div>
+              <div class="comparison-controls">
+                <span>드래그해서 비교해 보세요</span>
+                <span class="compare-arrows" aria-hidden="true">← →</span>
+              </div>
+            </div>
+            <div class="result-details">
+              <div><span class="detail-label">선택 스타일</span><strong id="resultStyle">캐리커처</strong></div>
+              <div><span class="detail-label">변환 상태</span><strong id="resultStatus">변환 전</strong></div>
+            </div>
+            <p class="mock-notice" id="mockNotice">사진을 캐리커처, 애니메이션, 영화 포스터로 변환해 보세요.</p>
+            <button class="download-button" id="downloadButton" type="button" disabled><span aria-hidden="true">↓</span> 결과 이미지 다운로드</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer><span class="brand brand-footer"><span class="brand-mark">C</span><span>caricature<span class="brand-dot">.</span></span></span><span>사진 한 장으로 새로운 나를 표현해요.</span></footer>
+  </body>
+</html>
